@@ -17,9 +17,12 @@
       <li><a href="https://www.github.com/Onodric"
              class="icon alt fa-github"><span class="label">
         Github</span></a></li>
-      <li><a href="mailto:belvedmarks4@gmail.com"
-             class="icon alt fa-envelope"><span
-          class="label">Email</span></a></li>
+      <li>
+        <a href="mailto:belvedmarks4@gmail.com"
+             class="icon alt fa-envelope">
+          <span class="label">Email</span>
+        </a>
+      </li>
     </ul>
   </header>
   <div class="container">
@@ -43,13 +46,20 @@
       <header class="major">
         <h2>{{ post.title }}</h2>
         <h4>{{ post.subheading }}</h4>
+        <small class="align-left">created: {{ post.created }}</small>
+        <small class="align-left">updated: {{ post.updated }}</small>
       </header>
-      <p class="flow-text">
-        {{ post.content|truncatewords_html:100 }}
-      </p>
+      <div class="flow-text align-left">
+        <p><strong>by: {{ post.author.first_name }}
+                   {{ post.author.last_name}}</strong></p>
+        <span><strong>{{ post.location }}  </strong></span>
+        {{ post.content|truncatewords_html:30 }}
+      </div>
     </div>
+    <a href="/posts/detail/{{ post.pk }}/"
+       class="button">Read More</a>
     {% if post.id|add:"-1" > 0 %}
-    <a href="#{{ post.id|add:"-1" }}" class="button goto-next scrolly">Read More</a>
+    <a href="#{{ post.id|add:"-1" }}" class="goto-next scrolly">Next</a>
     {% endif %}
   </div>
 </section>
