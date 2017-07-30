@@ -1,243 +1,25 @@
 {% load static %}
-<!--{% load navbar_extras %}-->
 <!DOCTYPE HTML>
 <html>
   <head>
     <title>bdm4 | blogity blog</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]>
+      <script src="{% static 'js/ie/html5shiv.js' %}"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="{% static 'css/ie8.css' %}" />
+    <![endif]-->
+    <!--[if lte IE 9]>
+      <link rel="stylesheet" href="{% static 'css/ie9.css' %}" />
+    <![endif]-->
   </head>
   <body>
 
-    <!-- Header -->
-      <section id="header">
-        <header class="major">
-          <h1>Ben Marks</h1>
-          <h2>A<span id="replace-text"> { talented</span> } software
-             developer</h2>
-          <p>brought to you by
-            <a href="http://nashvillesoftwareschool.com">
-              Nashville Software School
-            </a>
-          </p>
-          <ul class="icons">
-            <li><a href="https://twitter.com/onodric"
-                   class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="https://www.facebook.com/onodric"
-                   class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="https://www.instagram.com/belvemarks/?hl=en"
-                   class="icon alt fa-instagram"><span
-                class="label">Instagram</span></a></li>
-            <li><a href="https://www.github.com/Onodric"
-                   class="icon alt fa-github"><span class="label">
-              Github</span></a></li>
-            <li><a href="mailto:belvedmarks4@gmail.com"
-                   class="icon alt fa-envelope"><span
-                class="label">Email</span></a></li>
-          </ul>
-        </header>
-        <div class="container">
-          <ul class="actions">
-            <li><a href="#one" class="button special scrolly">Sit for a
-            Spell...</a></li>
-          </ul>
-        </div>
-      </section>
-
-    <!-- One -->
-      <section id="one" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/nashville.jpg" alt="My city, Nashville" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Who I am</h2>
-            </header>
-            <p class="flow-text">
-              I am a person passionate about technology and its
-              possibilities.  A maker of things physical and ephemeral.  A
-              communicator of ideas and ideals.  I am a husband, father,
-              homeowner, developer, welder, actor, designer, surveyor,
-              mapper, and know-it-all.
-            </p>
-            <p>
-              I began this journey as a child in front of an Apple II with
-              Logo.  That passion grew as a hobby through Basic, Pascal,
-              Java, C++, and Python.  I decided to transform a hobby into a
-              profession through hard work and Nashville Software School.
-            </p>
-            <p>
-              Every day I am challenged in a new way.  I am surrounded by
-              interesting and brilliant people.  I work together with those
-              people to solve problems I never dreamed I could solve.
-              <strong>What's next?</strong>
-            </p>
-          </div>
-          <a href="#two" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
-
-    <!-- Two -->
-      <section id="two" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/working.jpg" alt="A typical development set-up" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Stuff I do</h2>
-            </header>
-            <p>I plan. I code. I repeat.</p>
-            <ul class="icons-grid">
-              <li>
-                <span class="icon major fa-code"></span>
-                <h3>Front End</h3>
-              </li>
-              <li>
-                <span class="icon major fa-database"></span>
-                <h3>Back End</h3>
-              </li>
-              <li>
-                <span class="icon major fa-git-square"></span>
-                <h3>Git Skillz</h3>
-              </li>
-              <li>
-                <span class="icon major fa-coffee"></span>
-                <h3>Work All Night</h3>
-              </li>
-            </ul>
-          </div>
-          <a href="#three" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
-
-    <!-- Three -->
-      <section id="three" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/house.jpg" alt="My home on the range, circa 1950" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Stuff I've Done</h2>
-            </header>
-            <p>Hold on to your headphones....</p>
-            <p>please refer to my <a href="https://www.github.com/Onodric">
-              github</a> for more examples</p>
-          </div>
-          <a href="#four" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
-
-    <!-- Four -->
-      <section id="four" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/leXlogo.jpg" alt="My home on the range, circa 1950" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Lexicology</h2>
-            </header>
-            <p>
-              This is an awesome little SPA that tests your vocabulary. I'm
-              a fan of crosswords. I'm <em>NOT</em> ok with reuseing the 
-              same words over and over. Voila! <a
-                href="https://lexicology-fb430.firebaseapp.com/#/views/landing">leXicology</a> was born. This project is in the process of overhaul.
-            </p>
-          </div>
-          <a href="#Eight" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
-
-    <!-- Eight -->
-      <section id="Eight" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/pilzjagt.png"
-                 alt="Mushrrom Hunter App" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Pilzjagt</h2>
-              <h3>The Mushroom Hunter App</h3>
-            </header>
-            <p>A simple django-driven application that employs macine
-               learning on a known data set. This one predicts whether a
-               mushroom is edible or not. THIS IS TRULY A NOVELY
-               APPLICATION. Do not trust it's algorithms with your life.</p>
-            <a href="http://pilzjagt.belvedmarks4.com/predict">
-              Can I eat this fungus?
-            </a>
-          </div>
-          <a href="#five" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
-
-    <!-- Five -->
-      <section id="five" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/chatty.png"
-                 alt="My home on the range, circa 1950" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Chatty</h2>
-            </header>
-            <p>A chat app. GitHeads was a four person team at NSS. Feel
-               free to add your own missives! The background changes
-               whenever the theme colors are changed.</p>
-            <a href="./chatty/index.html">Look at it!</a>
-          </div>
-          <a href="#six" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
-
-    <!-- Six -->
-      <section id="six" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/seventh.jpg"
-                 alt="My home on the range, circa 1950" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Seventh Doctor Toy Storefront</h2>
-            </header>
-            <p>A simple storefront for a vintage toy store, allowing a
-               store owner to add a toy item.</p>
-            <a href="./seventh/index.html">Add your own toys.</a>
-          </div>
-          <a href="#seven" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
-
-    <!-- Seven -->
-      <section id="seven" class="main special">
-        <div class="container">
-          <span class="image fit primary">
-            <img src="images/battlebots.png"
-                 alt="My home on the range, circa 1950" />
-          </span>
-          <div class="content">
-            <header class="major">
-              <h2>Arena of Mythology</h2>
-            </header>
-            <p>An arena game, approximating a robot battle. Or mythology.
-               Or both. There is but one button. The challengers fight
-               using a robust system of algorithmical alchemy. One shall
-               lose. Or both!</p>
-            <a href="./battle/index.html">FIGHT!</a>
-          </div>
-          <a href="#footer" class="goto-next scrolly">Next</a>
-        </div>
-      </section>
+  {% block content %}
+  {% endblock %}
 
     <!-- Footer -->
       <section id="footer">
@@ -301,13 +83,15 @@
       </section>
 
     <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.scrollex.min.js"></script>
-      <script src="assets/js/jquery.scrolly.min.js"></script>
-      <script src="assets/js/skel.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-      <script src="assets/js/main.js"></script>
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+      <script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+      <script src="{% static 'js/skel.min.js' %}"></script>
+      <script src="{% static 'js/util.js' %}"></script>
+      <!--[if lte IE 8]>
+        <script src="{% static 'js/ie/respond.min.js' %}"></script>
+      <![endif]-->
+      <script src="{% static 'js/main.js' %}"></script>
 
   </body>
 </html>

@@ -1,2 +1,41 @@
-<h1>Hello!</h1>
-<p>I'm the list view Template</p>
+{% extends 'blogityBlog/index.html' %}
+{% block content %}
+
+<!-- One -->
+<section id="one" class="main special">
+  <div class="container">
+    <h1>Hello!</h1>
+    <p>I'm the list view Template</p>
+    <span class="image fit primary">
+      <img src="{{MEDIA_URL}}one/test_image.jpg"
+           alt="Test Image" />
+    </span>
+    <div class="content">
+      <header class="major">
+        <h2>Who I am</h2>
+      </header>
+      <p class="flow-text">
+        I am a person passionate about technology and its
+        possibilities.  A maker of things physical and ephemeral.  A
+        communicator of ideas and ideals.  I am a husband, father,
+        homeowner, developer, welder, actor, designer, surveyor,
+        mapper, and know-it-all.
+      </p>
+      <p>
+        I began this journey as a child in front of an Apple II with
+        Logo.  That passion grew as a hobby through Basic, Pascal,
+        Java, C++, and Python.  I decided to transform a hobby into a
+        profession through hard work and Nashville Software School.
+      </p>
+      <p>
+        Every day I am challenged in a new way.  I am surrounded by
+        interesting and brilliant people.  I work together with those
+        people to solve problems I never dreamed I could solve.
+        <strong>What's next?</strong>
+      </p>
+    </div>
+    <a href="#two" class="goto-next scrolly">Next</a>
+  </div>
+</section>
+
+{% endblock %}
