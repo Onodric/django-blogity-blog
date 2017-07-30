@@ -1,3 +1,42 @@
-<h1>Hello!</h1>
-<p>I'm the detail view Template</p>
-<h3>This is the main guy, right here.</h3>
+{% extends 'blogityBlog/index.html' %}
+{% block content %}
+
+<!--Intro Header-->
+<section id="header">
+  <header class="major">
+    <h1>{{ object.title }}</h1>
+    <h2>by {{ object.author.first_name }} {{ object.author.last_name }}</h2>
+    <h5>published: {{ object.created }}</h5>
+  </header>
+  <div class="container">
+    <h3>{{ object.subheading }}</h3>
+    <ul class="actions">
+      <li><a href="#body"
+             class="button special scrolly">Read on...</a></li>
+    </ul>
+  </div>
+
+</section>
+<!--END intro header-->
+
+<!-- One -->
+<section id="body" class="main special">
+  <div class="container">
+    <span class="image fit primary">
+      <img src="{{MEDIA_URL}}one/test_image.jpg"
+           alt="Test Image" />
+    </span>
+    <div class="content">
+      <small class="align-left" id="updated">
+        last updated: {{ object.updated }}
+      </small>
+      <div class="flow-text align-left">
+        <span><strong>{{ object.location }}  </strong></span>
+        {{ object.content }}
+      </div>
+    </div>
+    <a href="/posts/list/" class="button">Return to Posts</a>
+  </div>
+</section>
+
+{% endblock %}

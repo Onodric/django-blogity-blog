@@ -13,6 +13,3 @@ class PostDetailView(DetailView):
     model = Posts
     template_name = 'blogityBlog/post_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(PostDetailView, self).get_context_data(**kwargs)
-        context['now'] = timezone.now()
