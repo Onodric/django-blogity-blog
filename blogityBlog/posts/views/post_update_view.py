@@ -1,4 +1,4 @@
-from ..models.posts import Post
+from ..models.posts import Posts
 from django.views.generic.base import TemplateView
 
 
@@ -12,5 +12,5 @@ class PostUpdateView(TemplateView):
     template_name = 'blogityBlog/post_update.html'
 
     def get_context_data(self, **kwargs):
-        post_list = Post.objects.filter(author=kwargs['pk'])
+        post_list = Posts.objects.filter(author=kwargs['pk'])
         return {'post_list': post_list}

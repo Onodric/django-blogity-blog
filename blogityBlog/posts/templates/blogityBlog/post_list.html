@@ -1,41 +1,75 @@
 {% extends 'blogityBlog/index.html' %}
 {% block content %}
 
-<!-- One -->
-<section id="one" class="main special">
+<!--Intro Header-->
+<section id="header">
+  <header class="major">
+    <h1>Blog Posts</h1>
+    <h5>Follow Me!</h5>
+    <ul class="icons">
+      <li><a href="https://twitter.com/onodric"
+             class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="https://www.facebook.com/onodric"
+             class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+      <li><a href="https://www.instagram.com/belvemarks/?hl=en"
+             class="icon alt fa-instagram"><span
+          class="label">Instagram</span></a></li>
+      <li><a href="https://www.github.com/Onodric"
+             class="icon alt fa-github"><span class="label">
+        Github</span></a></li>
+      <li><a href="mailto:belvedmarks4@gmail.com"
+             class="icon alt fa-envelope"><span
+          class="label">Email</span></a></li>
+    </ul>
+  </header>
   <div class="container">
-    <h1>Hello!</h1>
-    <p>I'm the list view Template</p>
+    <ul class="actions">
+      <li><a href="#{{ view.get_latest.id }}"
+             class="button special scrolly">Read on...</a></li>
+    </ul>
+  </div>
+</section>
+<!--END intro header-->
+
+<!-- One -->
+{% for post in view.all_posts %}
+<section id="{{ post.id }}" class="main special">
+  <div class="container">
     <span class="image fit primary">
       <img src="{{MEDIA_URL}}one/test_image.jpg"
            alt="Test Image" />
     </span>
     <div class="content">
       <header class="major">
-        <h2>Who I am</h2>
+        <h2>{{ post.title }}</h2>
+        <h4>{{ post.subheading }}</h4>
       </header>
       <p class="flow-text">
-        I am a person passionate about technology and its
-        possibilities.  A maker of things physical and ephemeral.  A
-        communicator of ideas and ideals.  I am a husband, father,
-        homeowner, developer, welder, actor, designer, surveyor,
-        mapper, and know-it-all.
-      </p>
-      <p>
-        I began this journey as a child in front of an Apple II with
-        Logo.  That passion grew as a hobby through Basic, Pascal,
-        Java, C++, and Python.  I decided to transform a hobby into a
-        profession through hard work and Nashville Software School.
-      </p>
-      <p>
-        Every day I am challenged in a new way.  I am surrounded by
-        interesting and brilliant people.  I work together with those
-        people to solve problems I never dreamed I could solve.
-        <strong>What's next?</strong>
+        {{ post.content|truncatewords_html:100 }}
       </p>
     </div>
-    <a href="#two" class="goto-next scrolly">Next</a>
+    {% if post.id|add:"-1" > 0 %}
+    <a href="#{{ post.id|add:"-1" }}" class="button goto-next scrolly">Read More</a>
+    {% endif %}
   </div>
 </section>
+{% empty %}
+<section id="one" class="main special">
+  <div class="container">
+    <span class="image fit primary">
+      <img src="{{MEDIA_URL}}one/test_image.jpg"
+           alt="Test Image" />
+    </span>
+    <div class="content">
+      <header class="major">
+        <h2>Oops! No posts!</h2>
+      </header>
+      <p class="flow-text">
+        I should write something!
+      </p>
+    </div>
+  </div>
+</section>
+{% endfor %}
 
 {% endblock %}

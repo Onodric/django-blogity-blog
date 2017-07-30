@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models.posts import Post
+from .models.posts import Posts
 
 
 class PostModelAdmin(admin.ModelAdmin):
@@ -18,7 +18,7 @@ class PostModelAdmin(admin.ModelAdmin):
     list_editable = ["title"]
 
     class Meta:
-        model = Post
+        model = Posts
 
 
-admin.site.register(Post, PostModelAdmin)
+admin.site.register(Posts, PostModelAdmin)
