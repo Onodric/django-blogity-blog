@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+def upload_location(object, filename):
+    return "post-{}/{}".format(object.id, filename)
+
+
 class Posts(models.Model):
     """
     Post table representing a blog post, created by a specific user
@@ -23,6 +27,12 @@ class Posts(models.Model):
 
     title = models.CharField(max_length=120, blank=False)
     subheading = models.CharField(max_length=180)
+    image = models.ImageField(null=True, blank=True,
+                              width_field='width_field',
+                              height_field='height_field',
+                              upload_to=upload_location)
+    height_field = models.IntegerField(default=0)
+    width_field = models.IntegerField(default=0)
     content = models.TextField(blank=False)
     author = models.ForeignKey(User, on_delete=models.PROTECT,
                                default="bdmarks4")

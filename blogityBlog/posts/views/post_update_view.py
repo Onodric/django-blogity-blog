@@ -17,6 +17,7 @@ class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     fields = [
         'title',
         'subheading',
+        'image',
         'author',
         'content',
         'location',
