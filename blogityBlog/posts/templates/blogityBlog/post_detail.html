@@ -36,6 +36,10 @@
            class="button special">
           Update This Post
         </a>
+        <a href='{% url "posts:post_delete" object.pk %}'
+           class="button warning">
+          Delete This Post
+        </a>
         {% else %}
         <span><strong>{{ object.location }}  </strong></span>
         {{ object.content }}

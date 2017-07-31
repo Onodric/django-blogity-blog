@@ -2,9 +2,10 @@ from ..models.posts import Posts
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     View for displaying the post lists
 
@@ -21,3 +22,5 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         'location',
     ]
     success_url = reverse_lazy('posts:post_list')
+
+    success_message = "Post successfully CREATED"
