@@ -1,2 +1,36 @@
-<h1>Hello!</h1>
-<p>I'm the update view Template</p>
+{% extends 'blogityBlog/index.html' %}
+{% block content %}
+
+<!--Intro Header-->
+<section id="header">
+  <header class="major">
+    <h1>Update Post</h1>
+  </header>
+  <div class="container">
+    <ul class="actions">
+      <li><a href="#body"
+             class="button special scrolly">Edit Now...</a></li>
+    </ul>
+  </div>
+
+</section>
+<!--END intro header-->
+
+<!-- One -->
+<section id="body" class="main special">
+  <div class="container">
+    <span class="image fit primary">
+      <img src="{{MEDIA_URL}}one/test_image.jpg"
+           alt="Test Image" />
+    </span>
+    <div class="content">
+      <form method="POST" action="">
+        {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class="button special" value="Update Post" />
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

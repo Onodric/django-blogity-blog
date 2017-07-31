@@ -9,7 +9,7 @@
     <a href='{% url "posts:post_create" %}' class="button special">
       Create New Post
     </a>
-    {% endif %}
+    {% else %}
     <h5>Follow Me!</h5>
     <ul class="icons">
       <li><a href="https://twitter.com/onodric"
@@ -29,6 +29,7 @@
         </a>
       </li>
     </ul>
+    {% endif %}
   </header>
   <div class="container">
     <ul class="actions">
