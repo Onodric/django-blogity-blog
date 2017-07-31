@@ -17,6 +17,7 @@ class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     fields = [
         'title',
         'subheading',
+        'image',
         'author',
         'content',
         'location',

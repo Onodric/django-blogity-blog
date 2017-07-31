@@ -1,5 +1,6 @@
 {% extends 'blogityBlog/index.html' %}
 {% block head_title %}{{object.title}} | blogity blog{% endblock head_title%}
+{% load static %}
 {% block content %}
 
 <!--Intro Header-->
@@ -24,8 +25,11 @@
 <section id="body" class="main special">
   <div class="container">
     <span class="image fit primary">
-      <img src="{{MEDIA_URL}}one/test_image.jpg"
-           alt="Test Image" />
+      {% if object.image %}
+      <img src="{{ object.image.url }}" alt="Test Image" />
+      {% else %}
+      <img src="{% static 'css/images/overlook.jpg' %}" alt="Test Image" />
+      {% endif %}
     </span>
     <div class="content">
       <small class="align-left" id="updated">
