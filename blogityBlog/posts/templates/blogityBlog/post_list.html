@@ -41,7 +41,7 @@
 <!--END intro header-->
 
 <!-- One -->
-{% for post in view.all_posts %}
+{% for post in posts %}
 <section id="{{ post.id }}" class="main special">
   <div class="container">
     <span class="image fit primary">
@@ -88,5 +88,28 @@
   </div>
 </section>
 {% endfor %}
+
+{% if is_paginated %}
+<section class="main special">
+    <div class="content">
+      <div class="pagination align-center">
+        <span class="page-links">
+          {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"
+               class="button small">
+              More Recent</a>
+          {% endif %}
+          <span class="page-current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+          </span>
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="button small">
+              Older</a>
+          {% endif %}
+        </span>
+      </div>
+    </div>
+</section>
+{% endif %}
 
 {% endblock %}
