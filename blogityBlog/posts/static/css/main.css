@@ -1925,6 +1925,12 @@
             margin-top: 0;
         }
 
+        .timestamp {
+            font-size: xx-small;
+            margin: 0;
+            padding: 0;
+        }
+
 /* Form */
 
     form {
@@ -2591,6 +2597,19 @@
             cursor: default;
             opacity: 0.25;
         }
+
+        input[type="submit"].warning,
+        input[type="reset"].warning,
+        input[type="button"].warning,
+        button.warning,
+        .button.warning {
+            background-color: red;
+            border: 0;
+            box-shadow: none;
+            color: #ffffff !important;
+        }
+
+
 
 /* Main BG */
 
