@@ -52,18 +52,19 @@
       <header class="major">
         <h2>{{ post.title }}</h2>
         <h4>{{ post.subheading }}</h4>
-        <small class="align-left">created: {{ post.created }}</small>
-        <small class="align-left">updated: {{ post.updated }}</small>
+        <p>
+          <strong>
+          by: {{ post.author.first_name }} {{ post.author.last_name}}
+          </strong>
+        </p>
+        <p class="timestamp">created: {{ post.created }}</p>
+        <p class="timestamp">updated: {{ post.updated }}</p>
       </header>
-      <div class="flow-text align-left">
-        <p><strong>by: {{ post.author.first_name }}
-                   {{ post.author.last_name}}</strong></p>
-        <span><strong>{{ post.location }}  </strong></span>
-        {{ post.content|truncatewords_html:30 }}
+      <div class="flow-text">
       </div>
     </div>
     <a href='{% url "posts:post_detail" post.pk %}'
-       class="button">Read More!</a>
+       class="button special">Read More!</a>
     {% if post.id|add:"-1" > 0 %}
     <a href="#{{ post.id|add:"-1" }}" class="goto-next scrolly">Next</a>
     {% endif %}

@@ -2,7 +2,9 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>bdm4 | blogity blog</title>
+    <title>
+      {% block head_title %}bdm4 | blogity blog{% endblock head_title%}
+    </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]>
@@ -18,8 +20,25 @@
   </head>
   <body>
 
+  <!-- Header -->
+  {% if messages %}
+  <section id="header">
+    <header class="major">
+      {% for message in messages %}
+      <h3 {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {% if "html_safe" in message.tags %}
+        {{ message|safe }}
+        {% else %}
+        {{ message }}
+        {% endif %}
+      </h3>
+      {% endfor %}
+    </header>
+  </section>
+  {% endif %}
+
   {% block content %}
-  {% endblock %}
+  {% endblock content %}
 
     <!-- Footer -->
       <section id="footer">
