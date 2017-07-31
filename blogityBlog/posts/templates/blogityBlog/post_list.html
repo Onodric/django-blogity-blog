@@ -5,6 +5,11 @@
 <section id="header">
   <header class="major">
     <h1>Blog Posts</h1>
+    {% if user.is_authenticated %}
+    <a href='{% url "posts:post_create" %}' class="button special">
+      Create New Post
+    </a>
+    {% endif %}
     <h5>Follow Me!</h5>
     <ul class="icons">
       <li><a href="https://twitter.com/onodric"
@@ -28,7 +33,7 @@
   <div class="container">
     <ul class="actions">
       <li><a href="#{{ view.get_latest.id }}"
-             class="button special scrolly">Read on...</a></li>
+             class="button special scrolly">See Posts...</a></li>
     </ul>
   </div>
 </section>
@@ -56,8 +61,8 @@
         {{ post.content|truncatewords_html:30 }}
       </div>
     </div>
-    <a href="/posts/detail/{{ post.pk }}/"
-       class="button">Read More</a>
+    <a href='{% url "posts:post_detail" post.pk %}'
+       class="button">Read More!</a>
     {% if post.id|add:"-1" > 0 %}
     <a href="#{{ post.id|add:"-1" }}" class="goto-next scrolly">Next</a>
     {% endif %}

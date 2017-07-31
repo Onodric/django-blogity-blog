@@ -1,16 +1,23 @@
 from ..models.posts import Posts
-from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class PostCreateView(TemplateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     """
     View for displaying the post lists
 
     Author: Ben Marks
     """
 
+    model = Posts
     template_name = 'blogityBlog/post_create.html'
-
-    def get_context_data(self, **kwargs):
-        post_list = Posts.objects.filter(author=kwargs['pk'])
-        return {'post_list': post_list}
+    fields = [
+        'title',
+        'subheading',
+        'author',
+        'content',
+        'location',
+    ]
+    success_url = reverse_lazy('posts:post_list')
