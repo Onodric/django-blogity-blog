@@ -31,8 +31,15 @@
         last updated: {{ object.updated }}
       </small>
       <div class="flow-text align-left">
+        {% if user.is_authenticated %}
+        <a href='{% url "posts:post_update" object.pk %}'
+           class="button special">
+          Update This Post
+        </a>
+        {% else %}
         <span><strong>{{ object.location }}  </strong></span>
         {{ object.content }}
+        {% endif %}
       </div>
     </div>
     <a href="/posts/" class="button">Return to Posts</a>
