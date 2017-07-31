@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Posts(models.Model):
@@ -20,10 +21,11 @@ class Posts(models.Model):
     class Meta:
         verbose_name_plural = 'posts'
 
-    title = models.CharField(max_length=120)
+    title = models.CharField(max_length=120, blank=False)
     subheading = models.CharField(max_length=180)
-    content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    content = models.TextField(blank=False)
+    author = models.ForeignKey(User, on_delete=models.PROTECT,
+                               default="bdmarks4")
     location = models.CharField(max_length=30)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -35,3 +37,6 @@ class Posts(models.Model):
         """
         return '{0}, by {1} {2}'.format(self.title, self.author.first_name,
                                         self.author.last_name)
+
+    def get_absolute_url(self):
+        return reverse('post_detail', kwargs={'pk': self.pk})
