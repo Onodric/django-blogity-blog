@@ -67,7 +67,7 @@
       <div class="flow-text">
       </div>
     </div>
-    <a href='{% url "posts:post_detail" post.pk %}'
+    <a href='{% url "posts:post_detail" post.slug %}'
        class="button special">Read More!</a>
     {% if post.id|add:"-1" > 0 %}
     <a href="#{{ post.id|add:"-1" }}" class="goto-next scrolly">Next</a>
