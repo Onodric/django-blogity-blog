@@ -2,6 +2,7 @@ from ..models.posts import Posts
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
+
 class PostListView(ListView):
     """
     View for displaying the post lists

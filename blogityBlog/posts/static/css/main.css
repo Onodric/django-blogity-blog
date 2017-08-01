@@ -2234,7 +2234,7 @@
 
     ul {
         list-style: disc;
-        margin: 0 0 2em 0;
+        margin: 0 0 .25em 0;
         padding-left: 1em;
     }
 
@@ -2652,7 +2652,7 @@
         }
 
             .main .container:before {
-                min-height: calc( 100vh - 13em );
+                /*min-height: calc( 100vh - 13em );*/
                 content: '';
                 display: inline-block;
                 vertical-align: middle;
@@ -3060,4 +3060,9 @@
 
 #hiddenhack {
     display: none;
+}
+
+.fb-reformat {
+    margin-top: -.5em;
+    margin-bottom: .5em;
 }
