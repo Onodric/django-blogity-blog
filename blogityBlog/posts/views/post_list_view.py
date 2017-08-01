@@ -16,4 +16,4 @@ class PostListView(ListView):
     queryset = Posts.objects.all().order_by('-created')
 
     def get_latest(self):
-        return Posts.objects.order_by('-created')[0]
+        return Posts.objects.order_by('-created').first()

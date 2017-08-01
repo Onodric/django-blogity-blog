@@ -10,8 +10,10 @@ app_name = 'posts'
 urlpatterns = [
     url(r'^$', PostListView.as_view(), name='post_list'),
     url(r'^create/$', PostCreateView.as_view(), name='post_create'),
-    url(r'^update/(?P<pk>\d+)/$', PostUpdateView.as_view(), name='post_update'),
-    url(r'^delete/(?P<pk>\d+)/$', PostDeleteView.as_view(), name='post_delete'),
-    url(r'^(?P<pk>\d+)/$', PostDetailView.as_view(), name='post_detail'),
+    url(r'^update/(?P<slug>[\w-]+)/$', PostUpdateView.as_view(),
+        name='post_update'),
+    url(r'^delete/(?P<slug>[\w-]+)/$', PostDeleteView.as_view(),
+        name='post_delete'),
+    url(r'^(?P<slug>[\w-]+)/$', PostDetailView.as_view(), name='post_detail'),
 ]
 
