@@ -12,24 +12,6 @@
   </header>
 
   <div class="container">
-    <h3>Like it? Please share!</h3>
-    <ul class="icons">
-      <li><a
-          href="https://twitter.com/home?status=Really%20diggin%27%20this%20blog%20post%21%20{{ object.title|urlify }}%20by%20%40onodric:%20{{ request.build_absolute_uri }}"
-             class="icon alt fa-twitter-square"><span class="label">Twitter
-      </span></a></li>
-      <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
-             class="icon alt fa-facebook-official"><span class="label">Facebook
-      </span></a></li>
-      <li><a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'
-             class="icon alt fa-google-plus-official"><span
-          class="label">Google+</span></a></li>
-      <li>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ object.title|urlify }}&{{ object.subheading|urlify }}&source={{ request.build_absolute_uri }}" class="icon alt fa-linkedin-square">
-          <span class="label">LinkedIn</span>
-        </a>
-      </li>
-    </ul>
     <h3>{{ object.subheading }}</h3>
     <ul class="actions">
       <li><a href="#body"
@@ -50,11 +32,31 @@
       <img src="{% static 'css/images/overlook.jpg' %}" alt="Test Image" />
       {% endif %}
     </span>
+        <h3>Like it? Please share!</h3>
+    <ul class="icons">
+      <li><a
+          href="https://twitter.com/home?status=Really%20diggin%27%20this%20blog%20post%21%20{{ object.title|urlify }}%20by%20%40onodric:%20{{ request.build_absolute_uri }}"
+      class="icon alt fa-twitter-square"><span class="label">Twitter
+      </span></a></li>
+      <li><a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'
+             class="icon alt fa-google-plus-official"><span
+          class="label">Google+</span></a></li>
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ object.title|urlify }}&{{ object.subheading|urlify }}&source={{ request.build_absolute_uri }}" class="icon alt fa-linkedin-square">
+          <span class="label">LinkedIn</span>
+        </a>
+      </li>
+    </ul>
+    <div class="fb-like fb-reformat"
+         data-href="{{ request.build_absolute_uri }}"
+         data-layout="button" data-action="like" data-size="small"
+         data-show-faces="false" data-share="true"></div>
+
     <div class="content">
-      <h2>by {{ object.author.first_name }} {{ object.author.last_name }}</h2>
       <small class="align-left" id="updated">
         last updated: {{ object.updated|timesince }} ago
       </small>
+      <h6>by {{ object.author.get_full_name }}</h6>
       <div class="flow-text align-left">
         {% if user.is_authenticated %}
         <a href='{% url "posts:post_update" object.slug %}'
@@ -71,6 +73,10 @@
       </div>
     </div>
     <a href="/posts/" class="button">Return to Posts</a>
+    <div class="fb-comments content"
+         data-href="{{ request.build_absolute_url }}"
+         data-width="100%"
+         data-numposts="10"></div>
   </div>
 </section>
 

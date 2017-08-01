@@ -58,11 +58,11 @@
         <h4>{{ post.subheading }}</h4>
         <p>
           <strong>
-          by: {{ post.author.first_name }} {{ post.author.last_name}}
+          by: {{ post.author.get_full_name }}
           </strong>
         </p>
-        <p class="timestamp">created: {{ post.created }}</p>
-        <p class="timestamp">updated: {{ post.updated }}</p>
+        <p class="timestamp">created: {{ post.created|timesince }} ago</p>
+        <p class="timestamp">updated: {{ post.updated|timesince }} ago</p>
       </header>
       <div class="flow-text">
       </div>
