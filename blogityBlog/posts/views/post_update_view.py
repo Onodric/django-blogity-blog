@@ -2,10 +2,12 @@ from ..models.posts import Posts
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 
-class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin,
+                     SuccessMessageMixin, UpdateView):
     """
     View for editing a specific post
 
@@ -22,8 +24,8 @@ class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         'content',
         'location',
     ]
+    success_message = "Post successfully UPDATED"
+    permission_required = 'posts.post.can_change_posts'
 
     def get_success_url(self):
         return reverse_lazy('posts:post_detail', kwargs={'pk': self.object.id})
-
-    success_message = "Post successfully UPDATED"

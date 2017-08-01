@@ -1,33 +1,35 @@
 {% extends 'blogityBlog/index.html' %}
 {% block head_title %}{{object.title}} | blogity blog{% endblock head_title%}
 {% load static %}
+{% load urlify %}
 {% block content %}
 
 <!--Intro Header-->
 <section id="header">
   <header class="major">
     <h1>{{ object.title }}</h1>
-    <h2>by {{ object.author.first_name }} {{ object.author.last_name }}</h2>
-    <h5>published: {{ object.created }}</h5>
-
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://CodingForEntrepreneurs.com/">
-      Share on Facebook
-    </a>
-
-    <a href="https://twitter.com/home?status=I'm%20going%20to%20learn%20to%20Code...%20Come%20build%20an%20web%20apsp%20with%20me!%20%23CFE%20and%20@justinmitchel%20http://codingforentrepreneurs.com/">
-      Share on Twitter
-    </a>
-
-    <a href='https://plus.google.com/share?url=http://codingforentrepreneurs.com'>
-      Share on Google+
-    </a>
-
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://swiftforentrepreneurs.com/&title=Be%20first%20%7C%20Join%20Swift%20for%20Entrepreneurs&summary=Swift%20for%20Entrepreneurs%20is%20a%20project-based%20programming%20course%20for%20non-technical%20founders.%20We'll%20learn%20how%20to%20build%20iOS%20apps%20from%20scratch%20using%20Apple's%20new%20programming%20language:%20Swift.%20Be%20first%20and%20learn%20with%20me!&source=http://swiftforentrepreneurs.com/">
-      Share on Linkedin
-    </a>
-
+    <h5>published: {{ object.created|timesince }} ago</h5>
   </header>
+
   <div class="container">
+    <h3>Like it? Please share!</h3>
+    <ul class="icons">
+      <li><a
+          href="https://twitter.com/home?status=Really%20diggin%27%20this%20blog%20post%21%20{{ object.title|urlify }}%20by%20%40onodric:%20{{ request.build_absolute_uri }}"
+             class="icon alt fa-twitter-square"><span class="label">Twitter
+      </span></a></li>
+      <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+             class="icon alt fa-facebook-official"><span class="label">Facebook
+      </span></a></li>
+      <li><a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'
+             class="icon alt fa-google-plus-official"><span
+          class="label">Google+</span></a></li>
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ object.title|urlify }}&{{ object.subheading|urlify }}&source={{ request.build_absolute_uri }}" class="icon alt fa-linkedin-square">
+          <span class="label">LinkedIn</span>
+        </a>
+      </li>
+    </ul>
     <h3>{{ object.subheading }}</h3>
     <ul class="actions">
       <li><a href="#body"
@@ -49,8 +51,9 @@
       {% endif %}
     </span>
     <div class="content">
+      <h2>by {{ object.author.first_name }} {{ object.author.last_name }}</h2>
       <small class="align-left" id="updated">
-        last updated: {{ object.updated }}
+        last updated: {{ object.updated|timesince }} ago
       </small>
       <div class="flow-text align-left">
         {% if user.is_authenticated %}
