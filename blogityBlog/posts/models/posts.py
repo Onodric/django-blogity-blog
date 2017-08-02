@@ -37,11 +37,17 @@ class Posts(models.Model):
 
     Attributes:
         Title: the name of the post (headline
+        Slug:
         Subheading: a subheading for the article
+        Image:
+        height_field:
+        width_field:
         Content: the contents of the field. This will be populated with
             markdown converted text
         Author: A user byline, probably just one.
         Location: The location for the filing
+        Draft:
+        Publish:
         Created: The on-creation date and time, using UTC.
         Updated: The last modified date, in UTC.
     """
@@ -62,6 +68,8 @@ class Posts(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT,
                                default="bdmarks4")
     location = models.CharField(max_length=30)
+    draft = models.BooleanField(default=False)
+    publish = models.DateField(auto_now=False, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 

@@ -26,6 +26,10 @@
         window.setTimeout(function() {
           $html.removeClass('is-loading');
         }, 0);
+        let parent = $('#id_draft').parent();
+        $('label[for="id_draft"]').remove();
+        $("<label>Is This a Draft?</label>").attr("for", "id_draft").appendTo(parent);
+        $('#is_draft').attr('style', 'background: red');
       });
 
     // Touch mode.

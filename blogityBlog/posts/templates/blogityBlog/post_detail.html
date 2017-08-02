@@ -7,7 +7,10 @@
 <!--Intro Header-->
 <section id="header">
   <header class="major">
-    <h1>{{ object.title }}</h1>
+    {% if object.draft %}
+      <h1 id="is_draft">DRAFT</h1>
+    {% endif %}
+    <h2>{{ object.title }}</h2>
     <h5>published: {{ object.created|timesince }} ago</h5>
   </header>
 

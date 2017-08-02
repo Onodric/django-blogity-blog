@@ -18,6 +18,8 @@ class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin,
     template_name = 'blogityBlog/post_create.html'
     fields = [
         'title',
+        'draft',
+        'publish',
         'subheading',
         'image',
         'author',

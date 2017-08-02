@@ -18,6 +18,8 @@ class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin,
     template_name = 'blogityBlog/post_update.html'
     fields = [
         'title',
+        'draft',
+        'publish',
         'subheading',
         'image',
         'author',
@@ -28,4 +30,4 @@ class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin,
     permission_required = 'posts.post.can_change_posts'
 
     def get_success_url(self):
-        return reverse_lazy('posts:post_detail', kwargs={'pk': self.object.id})
+        return reverse_lazy('posts:post_detail', kwargs={'slug': self.object.slug})
