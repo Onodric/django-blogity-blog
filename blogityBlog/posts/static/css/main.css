@@ -3066,3 +3066,8 @@
     margin-top: -.5em;
     margin-bottom: .5em;
 }
+
+#is_draft {
+    color: white;
+    font-weight: bolder;
+}

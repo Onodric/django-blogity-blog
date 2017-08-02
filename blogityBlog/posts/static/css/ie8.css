@@ -43,12 +43,12 @@
 
     input[type="checkbox"],
     input[type="radio"] {
-        font-size: 3em;
+        font-size: 4em;
     }
 
         input[type="checkbox"] + label:before,
         input[type="radio"] + label:before {
-            display: none;
+            /*display: none;*/
         }
 
 /* Button */

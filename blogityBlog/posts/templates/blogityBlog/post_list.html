@@ -1,12 +1,13 @@
 {% extends 'blogityBlog/index.html' %}
 {% load static %}
 {% block content %}
+{% now "Y-m-d" as current_date %}
 
 <!--Intro Header-->
 <section id="header">
   <header class="major">
     <h1>Blog Posts</h1>
-    {% if user.is_authenticated %}
+    {% if user.is_staff %}
     <a href='{% url "posts:post_create" %}' class="button special">
       Create New Post
     </a>
@@ -43,6 +44,7 @@
 
 <!-- One -->
 {% for post in posts %}
+{% if user.is_staff or post.publish|date:"Y-m-d" < current_date or not post.draft %}
 <section id="{{ post.id }}" class="main special">
   <div class="container">
     <span class="image fit primary">
@@ -54,6 +56,12 @@
     </span>
     <div class="content">
       <header class="major">
+        {% if post.draft %}
+          <h1 class="is_draft">DRAFT</h1>
+        {% endif %}
+        {% if post.publish|date:"Y-m-d" > current_date  %}
+          <h1 class="is_draft">FUTURE POST</h1>
+        {% endif %}
         <h2>{{ post.title }}</h2>
         <h4>{{ post.subheading }}</h4>
         <p>
@@ -61,7 +69,7 @@
           by: {{ post.author.get_full_name }}
           </strong>
         </p>
-        <p class="timestamp">created: {{ post.created|timesince }} ago</p>
+        <p class="timestamp">published: {{ post.publish|timesince }} ago</p>
         <p class="timestamp">updated: {{ post.updated|timesince }} ago</p>
       </header>
       <div class="flow-text">
@@ -74,11 +82,12 @@
     {% endif %}
   </div>
 </section>
+{% endif %}
 {% empty %}
 <section id="one" class="main special">
   <div class="container">
     <span class="image fit primary">
-      <img src="{{MEDIA_URL}}one/test_image.jpg"
+      <img src="{% static 'css/images/overlook.jpg' %}"
            alt="Test Image" />
     </span>
     <div class="content">
@@ -115,5 +124,66 @@
     </div>
 </section>
 {% endif %}
+
+<!-- Footer -->
+  <section id="footer">
+    <div class="container">
+      <header class="major">
+        <h2>Get in touch</h2>
+      </header>
+      <form method="POST"
+            action="https://formspree.io/belvedmarks4@gmail.com">
+        <div class="row uniform">
+          <div class="12u$ 12u$(xsmall)">
+            <input type="text" name="name" id="name" placeholder="Name" />
+          </div>
+          <div class="12u$ 12u$(xsmall)">
+            <input type="email" name="_replyto" id="email" placeholder="Email" />
+          </div>
+          <div class="12u$">
+            <textarea type="text" name="_message" id="message"
+                   placeholder="Message">
+            </textarea>
+          </div>
+          <div class="12u$">
+            <input type="hidden" name="_subject"
+                   value="New Inquiry from Website!"/>
+          </div>
+          <div class="12u$">
+            <input type="hidden" name="_next"
+                   value="//www.belvedmarks4.com/thanks.html"/>
+          </div>
+          <div class="12u$">
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" class="special" /></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <ul class="icons">
+        <li><a href="https://twitter.com/onodric"
+               class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="https://www.facebook.com/onodric"
+               class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+        <li><a href="https://www.instagram.com/belvemarks/?hl=en"
+               class="icon alt fa-instagram"><span
+            class="label">Instagram</span></a></li>
+        <li><a href="https://www.github.com/Onodric"
+               class="icon alt fa-github"><span class="label">
+          Github</span></a></li>
+        <li><a href="mailto:belvedmarks4@gmail.com"
+               class="icon alt fa-envelope"><span
+            class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>&copy; Belve D. Marks, IV a.k.a. "Ben"</li>
+        <li>Design:
+          <a href="http://html5up.net">HTML5 UP</a>
+        </li>
+      </ul>
+    </footer>
+  </section>
 
 {% endblock %}

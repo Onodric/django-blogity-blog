@@ -13,8 +13,8 @@ class PostListView(ListView):
     model = Posts
     template_name = 'blogityBlog/post_list.html'
     context_object_name = "posts"
-    paginate_by = 3
-    queryset = Posts.objects.all().order_by('-created')
+    paginate_by = 10
+    queryset = Posts.objects.all().order_by('-publish')
 
     def get_latest(self):
-        return Posts.objects.order_by('-created').first()
+        return Posts.objects.order_by('-publish').first()
