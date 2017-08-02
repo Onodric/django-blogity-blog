@@ -3,15 +3,19 @@
 {% load static %}
 {% load urlify %}
 {% block content %}
+{% now "Y-m-d" as current_date %}
 
 <!--Intro Header-->
 <section id="header">
   <header class="major">
     {% if object.draft %}
-      <h1 id="is_draft">DRAFT</h1>
+      <h1 class="is_draft">DRAFT</h1>
+    {% endif %}
+    {% if object.publish|date:"Y-m-d" > current_date  %}
+      <h1 class="is_draft">FUTURE POST</h1>
     {% endif %}
     <h2>{{ object.title }}</h2>
-    <h5>published: {{ object.created|timesince }} ago</h5>
+    <h5>published: {{ object.publish|date }}</h5>
   </header>
 
   <div class="container">
@@ -54,14 +58,13 @@
          data-href="{{ request.build_absolute_uri }}"
          data-layout="button" data-action="like" data-size="small"
          data-show-faces="false" data-share="true"></div>
-
     <div class="content">
       <small class="align-left" id="updated">
         last updated: {{ object.updated|timesince }} ago
       </small>
       <h6>by {{ object.author.get_full_name }}</h6>
       <div class="flow-text align-left">
-        {% if user.is_authenticated %}
+        {% if user.is_staff or user.is_superuser %}
         <a href='{% url "posts:post_update" object.slug %}'
            class="button special">
           Update This Post

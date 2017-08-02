@@ -29,7 +29,7 @@
         let parent = $('#id_draft').parent();
         $('label[for="id_draft"]').remove();
         $("<label>Is This a Draft?</label>").attr("for", "id_draft").appendTo(parent);
-        $('#is_draft').attr('style', 'background: red');
+        $('.is_draft').attr('style', 'background: red; color: white');
       });
 
     // Touch mode.
