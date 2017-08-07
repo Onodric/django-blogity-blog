@@ -32,6 +32,21 @@
       </li>
     </ul>
     {% endif %}
+<!-- Search Bar -->
+    <nav class="search-bar">
+      <ul>
+        <li>
+          <form action="" method="GET">
+            <span class="icon minor fa-search"></span>
+            <input type="text" name="searcher" placeholder="Search Posts"
+                   value="{{ request.GET.searcher }}" />
+            <input type="submit" value="SEARCH" />
+          </form>
+        </li>
+      </ul>
+    </nav>
+<!-- END Search Bar -->
+
   </header>
   <div class="container">
     <ul class="actions">
@@ -95,7 +110,9 @@
         <h2>Oops! No posts!</h2>
       </header>
       <p class="flow-text">
-        I should write something!
+        I should write something
+        {% if request.GET.searcher %}
+        about {{ request.GET.searcher }}{% endif %}!
       </p>
     </div>
   </div>

@@ -3068,6 +3068,58 @@
 }
 
 #is_draft {
+    background: red;
     color: white;
     font-weight: bolder;
+}
+
+.search-bar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    min-height: 5vh;
+    min-width: 100%;
+    background: rgba(255,255,255,.6);
+    color: #313a3d;
+}
+
+.search-bar ul {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.search-bar ul li {
+    margin: 0.5em auto;
+    width: 100%;
+}
+
+.search-bar ul span {
+    display: inline;
+    /*float: left;*/
+}
+
+.search-bar ul li input[type="text"]{
+    display: inline;
+    /*float: left;*/
+    height: 2em;
+    width: 80%;
+    margin-right: 0.5em;
+}
+
+.search-bar ul li input[type="submit"]{
+    height: 2em;
+    line-height: 0;
+    width: 25%;
+    padding: 0 .5em 0 .5em;
+}
+
+.search-bar ul li form {
+    height: 2em;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    width: 100%;
 }
