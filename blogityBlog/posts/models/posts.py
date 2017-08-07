@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+from markdownx.models import MarkdownxField
 
 
 def upload_location(instance, filename):
@@ -37,17 +38,17 @@ class Posts(models.Model):
 
     Attributes:
         Title: the name of the post (headline
-        Slug:
+        Slug: the slugfield representing a more user-friendly address
         Subheading: a subheading for the article
-        Image:
-        height_field:
-        width_field:
+        Image: An optional image for the blog post
+        height_field: int, size for image
+        width_field: int, size for image
         Content: the contents of the field. This will be populated with
             markdown converted text
         Author: A user byline, probably just one.
         Location: The location for the filing
-        Draft:
-        Publish:
+        Draft: Boolean for draft status
+        Publish: the publish date
         Created: The on-creation date and time, using UTC.
         Updated: The last modified date, in UTC.
     """
@@ -64,7 +65,7 @@ class Posts(models.Model):
                               height_field='height_field')
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
-    content = models.TextField(blank=False)
+    content = MarkdownxField(blank=False)
     author = models.ForeignKey(User, on_delete=models.PROTECT,
                                default="bdmarks4")
     location = models.CharField(max_length=30)
