@@ -74,8 +74,10 @@
           Delete This Post
         </a>
         {% endif %}
-        <span><strong>{{ object.location }}  </strong></span>
-        {{ object.content }}
+        <div class="markdownx-preview">
+          <span><strong>{{ object.location }}  </strong></span>
+          {{ object.content|safe }}
+        </div>
       </div>
     </div>
     <a href="/posts/" class="button">Return to Posts</a>

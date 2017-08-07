@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models.posts import Posts
+from markdownx.admin import MarkdownxModelAdmin
 
 
 class PostModelAdmin(admin.ModelAdmin):
@@ -21,4 +22,4 @@ class PostModelAdmin(admin.ModelAdmin):
         model = Posts
 
 
-admin.site.register(Posts, PostModelAdmin)
+admin.site.register(Posts, MarkdownxModelAdmin)
