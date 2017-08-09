@@ -19,6 +19,9 @@
   </header>
 
   <div class="container">
+    {% for tag in object.category.all %}
+    <small class="tag-name">{{ tag }}</small>
+    {% endfor %}
     <h3>{{ object.subheading }}</h3>
     <ul class="actions">
       <li><a href="#body"

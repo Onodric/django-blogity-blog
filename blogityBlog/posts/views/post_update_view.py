@@ -18,6 +18,7 @@ class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin,
     template_name = 'blogityBlog/post_update.html'
     fields = [
         'title',
+        'category',
         'draft',
         'publish',
         'subheading',
