@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
+from .category import Category
 
 
 def upload_location(instance, filename):
@@ -37,7 +38,8 @@ class Posts(models.Model):
     Post table representing a blog post, created by a specific user
 
     Attributes:
-        Title: the name of the post (headline
+        Title: the name of the post (headline)
+        Category: The Foreign key of a category
         Slug: the slugfield representing a more user-friendly address
         Subheading: a subheading for the article
         Image: An optional image for the blog post
@@ -57,6 +59,7 @@ class Posts(models.Model):
         verbose_name_plural = 'posts'
 
     title = models.CharField(max_length=120, blank=False)
+    category = models.ManyToManyField(Category)
     slug = models.SlugField(unique=True)
     subheading = models.CharField(max_length=180)
     image = models.ImageField(upload_to=upload_location,

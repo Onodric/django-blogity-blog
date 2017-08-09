@@ -19,6 +19,7 @@ class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin,
     fields = [
         'title',
         'draft',
+        'category',
         'publish',
         'subheading',
         'image',

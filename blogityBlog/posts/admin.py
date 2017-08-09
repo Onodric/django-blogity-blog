@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models.posts import Posts
 from markdownx.admin import MarkdownxModelAdmin
+from .models.posts import Posts
+from .models.category import Category
 
 
 class PostModelAdmin(admin.ModelAdmin):
@@ -12,10 +13,10 @@ class PostModelAdmin(admin.ModelAdmin):
     the ability to edit title from the list view.
     """
 
-    list_display = ["__str__", "title","created", "updated"]
+    list_display = ["__str__", "title", "created", "updated", "category"]
     list_display_links = ["__str__"]
-    list_filter = ["author", "title", "updated", "created"]
-    search_fields = ["title", "subheading", "content"]
+    list_filter = ["author", "title", "updated", "created", "category"]
+    search_fields = ["title", "subheading", "content", "category"]
     list_editable = ["title"]
 
     class Meta:
@@ -23,3 +24,4 @@ class PostModelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Posts, MarkdownxModelAdmin)
+admin.site.register(Category)

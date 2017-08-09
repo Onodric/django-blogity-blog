@@ -3123,3 +3123,11 @@
     display: inline-flex;
     width: 100%;
 }
+
+small.tag-name {
+    background: rgba(20, 20, 20, 0.25);
+    color: rgba(0,0,0,.5);
+    font-size: .75em;
+    padding: .5em;
+    border-radius: .25em;
+}
