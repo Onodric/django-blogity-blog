@@ -12,7 +12,7 @@
       Create New Post
     </a>
     {% else %}
-    <h5>Follow Me!</h5>
+    <h5>Follow Me!</h5><br>
     <ul class="icons">
       <li><a href="https://twitter.com/onodric"
              class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
@@ -24,12 +24,6 @@
       <li><a href="https://www.github.com/Onodric"
              class="icon alt fa-github"><span class="label">
         Github</span></a></li>
-      <li>
-        <a href="mailto:belvedmarks4@gmail.com"
-             class="icon alt fa-envelope">
-          <span class="label">Email</span>
-        </a>
-      </li>
     </ul>
     {% endif %}
 <!-- Search Bar -->
@@ -85,7 +79,8 @@
         <p>
           <strong>
           by: {{ post.author.get_full_name }}
-          </strong>
+          </strong><br>
+          <small>read time: {{ post.read_time|time:"i" }} minutes</small>
         </p>
         <p class="timestamp">published: {{ post.publish|timesince }} ago</p>
         <p class="timestamp">updated: {{ post.updated|timesince }} ago</p>

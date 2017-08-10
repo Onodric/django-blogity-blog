@@ -1,7 +1,6 @@
 from ..models.posts import Posts
 from django.views.generic.detail import DetailView
 from markdownx.utils import markdownify
-from ..models.category import Category
 
 
 class PostDetailView(DetailView):
