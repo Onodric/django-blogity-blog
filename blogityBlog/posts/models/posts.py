@@ -5,6 +5,8 @@ from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
 from .category import Category
+from markdownx.utils import markdownify
+from ..utils import get_read_time
 
 
 def upload_location(instance, filename):
@@ -31,6 +33,10 @@ def create_slug(instance, new_slug=None):
 def pre_save_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)
+    if instance.content:
+        html_string = markdownify(instance.content)
+        read_time = get_read_time(html_string)
+        instance.read_time = read_time
 
 
 class Posts(models.Model):
@@ -76,6 +82,7 @@ class Posts(models.Model):
     publish = models.DateField(auto_now=False, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    read_time = models.TimeField(null=True, blank=True)
 
     def __str__(self):
         """

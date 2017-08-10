@@ -23,6 +23,7 @@
     <small class="tag-name">{{ tag }}</small>
     {% endfor %}
     <h3>{{ object.subheading }}</h3>
+    <h6>Read Time: {{ object.read_time|time:"i" }} minutes</h6>
     <ul class="actions">
       <li><a href="#body"
              class="button special scrolly">Read on...</a></li>
