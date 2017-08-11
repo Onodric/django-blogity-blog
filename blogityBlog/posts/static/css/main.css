@@ -3134,36 +3134,22 @@ small.tag-name {
 
 #header a.icon.alt {
     color: rgba(255,255,255,.95);
-    /*padding: 1em .5em .5em .5em;*/
-    /*background: rgba(2,2,2,.5);*/
-    /*border: 1px solid white;*/
 }
-
-/*#header .major h5 {*/
-    /*color: rgba(255,255,255,.9);*/
-    /*display: inline-block;*/
-    /*background: rgba(0,0,0,.5);*/
-    /*box-shadow: 0 0 .5em rgba(0,0,0,.5);*/
-/*}*/
-
-/*#header .major ul {*/
-    /*line-height: .5em;*/
-    /*padding: .5em;*/
-    /*background: rgba(0,0,0,.5);*/
-    /*box-shadow: 0 0 .5em rgba(0,0,0,.5);*/
-    /*display: inline-block;*/
-/*}*/
 
 #header .major {
     color: rgba(255,255,255,.9);
     position: fixed;
     display: inline-block;
     height: auto;
-    top: 50%;
+    top: 25%;
     left: 25%;
     width: 50%;
     background: rgba(0,0,0,.6);
     box-shadow: 0 0 3em rgba(0,0,0,1);
     padding-top: 1em;
     padding-bottom: 1em;
+}
+
+.markdownx-preview p img {
+    max-width: 100%;
 }

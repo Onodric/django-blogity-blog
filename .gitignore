@@ -8,6 +8,7 @@ include/*
 lib/*
 local/*
 pip-selfcheck.json
-*/blogityBlog/static/*
-*/blogityBlog/media/*
+*/static
+*/media
 */local
+!/posts/ststic/*
