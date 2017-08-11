@@ -23,9 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a5j(l(1rfmfh=aid63*ro%it69!otx-k!xp)myduf$z0)#1!5='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blog.belvedmarks4.com',
+		'localhost',
+		'104.131.179.189',
+		'www.belvedmarks4.com',
+		'0.0.0.0'
+		]
 
 
 # Application definition
@@ -120,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = os.path.join(BASE_DIR, 'static/')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = os.path.join(BASE_DIR, 'media/')
+STATIC_ROOT = '/home/onodric/django-blogity-blog/blogityBlog/static'
+STATIC_URL = '/static/' # os.path.join(BASE_DIR, 'static/')
+MEDIA_ROOT = '/home/onodric/django-blogity-blog/blogityBlog/media'
+MEDIA_URL = '/media/' # os.path.join(BASE_DIR, 'media/')

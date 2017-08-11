@@ -2,3 +2,11 @@
 db.sqlite3
 __pycache__
 */media
+/bin
+/share
+/include
+/lib
+/local
+pip-selfcheck.json
+*/blogityBlog/static
+*/blogityBlog/media
