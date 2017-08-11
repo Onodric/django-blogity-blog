@@ -1,12 +1,10 @@
 .idea
 db.sqlite3
 __pycache__
-*/media/*
 bin/*
 share/*
 include/*
 lib/*
-local/*
 pip-selfcheck.json
 */static
 */media
