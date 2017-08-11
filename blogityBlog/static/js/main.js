@@ -146,7 +146,6 @@
                 .css('box-shadow', '0 0 3em rgba(0,0,0,1)')
                 .css('padding-top', '1em')
                 .css('padding-bottom', '1em')
-                .css('margin-top', ($headerTitle.outerHeight() / -2));
 
             });
 
@@ -164,7 +163,6 @@
                 .css('box-shadow', '0 0 3em rgba(0,0,0,1)')
                 .css('padding-top', '1em')
                 .css('padding-bottom', '1em')
-                .css('margin-top', ($headerTitle.outerHeight() / -2));
 
             });
 
